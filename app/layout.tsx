@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { ApolloProvider } from "@apollo/client/react";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,22 +18,15 @@ export const metadata: Metadata = {
   description: "A simple tableview for the Rick and Morty API for takehome assessment",
 };
 
-const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_API_URL!,
-  cache: new InMemoryCache(),
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ApolloProvider client={client}>
-          {children}
-        </ApolloProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
