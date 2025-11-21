@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rick & Morty Dashboard
+
+Takehome assignment for Alternative Payment's hiring proccess.
 
 ## Getting Started
 
-First, run the development server:
+1. Copy the environment file and install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp env.example .env.local
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── app/                    # Next.js app router
+├── components/
+│   ├── atoms/              # Basic UI elements (Button, Input, TableCell, etc)
+│   ├── molecules/          # Composed components (SearchInput, TableRow, TableHeader)
+│   ├── organisms/          # Complex components (CharacterTable, LocationChart)
+│   └── pages/              # Page layouts (Dashboard)
+├── graphql/
+│   └── queries/            # GraphQL query definitions
+└── hooks/                  # Custom React hooks (useCharacters, useDebounce)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design Decisions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- The table is virtualized using react-cool-virtual to handle large datasets efficiently. We had to set the tbody element to display block for the virtualization to work properly with the table structure.
 
-## Deploy on Vercel
+- Pagination is handled by the virtualization library itself. When the user scrolls near the bottom, it triggers a loadMore callback that fetches the next page through the useCharacters hook.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- The pie chart is built with Recharts and automatically updates whenever new data arrives, whether from loading more pages or applying a search filter.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- State management relies entirely on Apollo Client's InMemoryCache. When new characters arrive with the same filter, the cache merge policy combines old results with new ones. This eliminates the need for separate state hooks to track the character list.
+
+## Trade-offs and Unfinished Parts
+
+- Testing coverage could be expanded with more unit tests for individual atoms and molecules, as well as integration tests for the data fetching flow.
+
+- The atoms components (Button, Input) have minimal variants. In a production app these would have more style variants to cover different use cases.
+
+- When applying a new search filter, the scroll position stays where it was instead of resetting to the top. This could be improved by programmatically scrolling to the top when the filter changes.
