@@ -1,0 +1,151 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dashboard > matches snapshot 1`] = `
+<div>
+  <div
+    class="dashboard"
+  >
+    <header
+      class="dashboard__header"
+    >
+      <h1
+        class="dashboard__title"
+      >
+        Rick & Morty Characters
+      </h1>
+      <p
+        class="dashboard__subtitle"
+      >
+        Dashboard created to the Takehome assignment from Alternative Payments
+      </p>
+    </header>
+    <div
+      class="dashboard__controls"
+    >
+      <div
+        class="search-input"
+      >
+        <div
+          class="search-input__icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-search"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m21 21-4.34-4.34"
+            />
+            <circle
+              cx="11"
+              cy="11"
+              r="8"
+            />
+          </svg>
+        </div>
+        <input
+          class="input search-input__field"
+          placeholder="Search characters by name..."
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="dashboard__content"
+    >
+      <section
+        class="dashboard__table-section"
+      >
+        <div
+          class="character-table"
+        >
+          <div
+            class="character-table__container"
+          >
+            <table
+              class="character-table__table"
+            >
+              <thead
+                class="table-header"
+              >
+                <tr
+                  class="table-row table-row--header"
+                >
+                  <th
+                    class="table-cell table-cell--center"
+                  />
+                  <th
+                    class="table-cell table-cell--left"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="table-cell table-cell--left"
+                  >
+                    Status
+                  </th>
+                  <th
+                    class="table-cell table-cell--left"
+                  >
+                    Species
+                  </th>
+                  <th
+                    class="table-cell table-cell--left"
+                  >
+                    Gender
+                  </th>
+                  <th
+                    class="table-cell table-cell--left"
+                  >
+                    Origin
+                  </th>
+                  <th
+                    class="table-cell table-cell--left"
+                  >
+                    Location
+                  </th>
+                </tr>
+              </thead>
+              <tbody />
+            </table>
+          </div>
+        </div>
+      </section>
+      <aside
+        class="dashboard__sidebar"
+      >
+        <div
+          class="location-chart"
+        >
+          <h3
+            class="location-chart__title"
+          >
+            Characters by Location
+          </h3>
+          <div
+            class="location-chart__content"
+          >
+            <div
+              style="width: 400px; height: 400px;"
+            >
+              <div
+                class="recharts-wrapper"
+                style="position: relative; cursor: default;"
+              />
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+`;
