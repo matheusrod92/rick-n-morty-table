@@ -1,0 +1,38 @@
+.search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input__icon {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a3a3a3;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-input__field {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.search-input__clear {
+  position: absolute;
+  right: 4px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .search-input__icon {
+    color: #737373;
+  }
+}

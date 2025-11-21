@@ -1,0 +1,9 @@
+.table-row--header {
+  background-color: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-row--header {
+    background-color: #171717;
+  }
+}
