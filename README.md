@@ -50,3 +50,11 @@ pnpm dev
 - The atoms components (Button, Input) have minimal variants. In a production app these would have more style variants to cover different use cases.
 
 - When applying a new search filter, the scroll position stays where it was instead of resetting to the top. This could be improved by programmatically scrolling to the top when the filter changes.
+
+## Late Notes (Written after the 6 hours limit)
+
+- `TableRow` should be moved from `molecules` to `atoms`
+
+- Quick scrolling the lists is not fetching the data in some cases (ex: quickly drag the scroll bar), a change in the index reference might fix the issue.
+
+- Recreate the location map on every fetch is exhaustive because we always look for the entire characters array
