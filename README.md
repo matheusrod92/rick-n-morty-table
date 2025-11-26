@@ -58,3 +58,7 @@ pnpm dev
 - Quick scrolling the lists is not fetching the data in some cases (ex: quickly drag the scroll bar), a change in the index reference might fix the issue.
 
 - Recreate the location map on every fetch is exhaustive because we always look for the entire characters array
+
+- Would be good to have global variables defining a theme with colors, viewports and other hardcoded css values
+
+- @container query could be used instead of @media based on screen size for responsive components
